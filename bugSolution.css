@@ -1,0 +1,31 @@
+/* bugSolution.css */
+
+/* Correcting calculation to prevent negative width */
+.container {
+  width: calc(100% - 200px);
+  /* Ensures width remains positive */
+  width: max(0, calc(100% - 200px));
+  /* Or clamp the value within a range */
+  width: clamp(100px, calc(100% - 200px), 500px);
+  background-color: lightblue;
+}
+
+/* Example of consistent unit usage for clarity */
+.element {
+  width: calc(50% - 10px);
+  height: calc(200px + 2em);
+  background-color: lightcoral;
+}
+
+/* Handling potential negative values using max() or clamp() */
+.dynamic-element {
+  width: max(0, calc(var(--dynamic-width) - 100px));
+  height: clamp(50px, calc(var(--dynamic-height) / 2), 200px);
+  background-color: lightgreen;
+}
+
+/* Set CSS variables when needed */
+:root {
+  --dynamic-width: 150px;
+  --dynamic-height: 300px;
+}
